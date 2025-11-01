@@ -1,0 +1,179 @@
+# 自定义配置示例
+# 复制此文件并根据您的需求修改
+
+# ============================================
+# 文件名识别规则
+# ============================================
+filename_patterns:
+  # 示例：添加您自己的命名格式
+  # 取消下面的注释并修改为您的格式
+  
+  # - name: "我的自定义格式"
+  #   pattern: '^Sample_([^_]+)_([FR])\.ab1$'
+  #   sample_group: 1
+  #   direction_group: 2
+  #   description: "格式: Sample_样本ID_方向.ab1"
+  
+  # 正则表达式说明：
+  # ^ - 字符串开始
+  # $ - 字符串结束
+  # ([^_]+) - 捕获组：匹配一个或多个非下划线字符
+  # ([FR]) - 捕获组：匹配 F 或 R
+  # \. - 转义的点号
+  
+  # 更多示例：
+  
+  # 格式: LAB_2024_001_F.ab1
+  # - name: "实验室编号格式"
+  #   pattern: '^LAB_\d{4}_(\d{3})_([FR])\.ab1$'
+  #   sample_group: 1
+  #   direction_group: 2
+  #   description: "格式: LAB_年份_编号_方向.ab1"
+  
+  # 格式: Strain_ABC_Forward.ab1
+  # - name: "菌株名称格式"
+  #   pattern: '^Strain_([A-Z0-9]+)_(Forward|Reverse)\.ab1$'
+  #   sample_group: 1
+  #   direction_group: 2
+  #   direction_map:
+  #     Forward: F
+  #     Reverse: R
+  #   description: "格式: Strain_菌株名_Forward/Reverse.ab1"
+
+# ============================================
+# 序列组装参数
+# ============================================
+assembly:
+  # 最小重叠长度（碱基对）
+  # 较大的值：更严格，减少错误组装
+  # 较小的值：更宽松，可能组装更多序列
+  min_overlap: 20
+  
+  # 最小质量分数（Phred score）
+  # 范围：0-40，通常 20 表示 99% 准确度
+  min_quality: 20
+  
+  # 是否修剪低质量末端
+  trim_ends: true
+  
+  # 末端修剪阈值
+  # 当质量分数低于此比例时开始修剪
+  trim_threshold: 0.05
+  
+  # 质量评估窗口大小
+  window_size: 20
+  
+  # 最小序列长度（碱基对）
+  # 短于此长度的序列会被过滤
+  min_sequence_length: 100
+
+# ============================================
+# BLAST 分析参数
+# ============================================
+blast:
+  # BLAST 数据库选择
+  # 选项：
+  #   - "nt": 所有核苷酸数据库（最全面，但最慢）
+  #   - "refseq_rna": RefSeq RNA 数据库（推荐，平衡速度和准确度）
+  #   - "16S_ribosomal_RNA": 16S rRNA 专用数据库（最快，但仅限 16S）
+  database: "nt"
+  
+  # 每个序列返回的最大匹配数
+  # 较大的值：更多结果，但速度更慢
+  max_hits: 10
+  
+  # E-value 阈值
+  # 较小的值：更严格的匹配标准
+  evalue: 0.001
+  
+  # 查询间隔（秒）
+  # NCBI 限制查询频率，建议至少 10 秒
+  # 如果遇到限制错误，增加此值
+  delay: 10
+  
+  # 超时时间（秒）
+  # 单次查询的最大等待时间
+  timeout: 300
+  
+  # 是否启用断点续传
+  # true: 中断后可继续
+  # false: 每次从头开始
+  resume: true
+  
+  # 进度保存文件
+  progress_file: "blast_progress.json"
+
+# ============================================
+# 输出设置
+# ============================================
+output:
+  # 序列组装结果目录
+  assembly_dir: "sanger_assembly_results"
+  
+  # BLAST 结果目录
+  blast_dir: "blast_results"
+  
+  # 是否生成 Excel 报告
+  generate_excel: true
+  
+  # 是否生成文本报告
+  generate_text: true
+  
+  # 是否生成 CSV 摘要
+  generate_csv: true
+  
+  # Excel 报告中包含的列
+  excel_columns:
+    - "样本ID"
+    - "物种名称"
+    - "相似度"
+    - "覆盖度"
+    - "E-value"
+    - "序列长度"
+    - "比对长度"
+    - "登录号"
+
+# ============================================
+# 日志设置
+# ============================================
+logging:
+  # 日志级别
+  # 选项: DEBUG, INFO, WARNING, ERROR, CRITICAL
+  level: "INFO"
+  
+  # 日志文件
+  file: "analysis.log"
+  
+  # 是否在控制台显示日志
+  console: true
+  
+  # 日志格式
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# ============================================
+# 高级选项
+# ============================================
+advanced:
+  # 并行处理线程数（暂未实现）
+  # threads: 4
+  
+  # 内存限制（MB）（暂未实现）
+  # memory_limit: 2048
+  
+  # 临时文件目录
+  temp_dir: "temp"
+  
+  # 是否保留临时文件
+  keep_temp: false
+
+# ============================================
+# 使用说明
+# ============================================
+# 1. 复制此文件为 my_config.yaml
+# 2. 根据需求修改参数
+# 3. 使用自定义配置运行：
+#    python sanger_16s_pipeline.py -i ./data -c my_config.yaml --batch
+#
+# 4. 如果只想修改部分参数，可以只保留要修改的部分
+#    其他参数会使用默认值
+

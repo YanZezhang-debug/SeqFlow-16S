@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project specific
+*.ab1
+*.seq
+*.pdf
+sanger_assembly_results/
+blast_results/
+*.log
+blast_progress.json
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# Output files (keep examples)
+!examples/*.ab1
+!examples/*.seq
+
+# OS
+Thumbs.db
+.DS_Store

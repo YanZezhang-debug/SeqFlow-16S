@@ -1,0 +1,84 @@
+# 16S rRNA 测序分析工具配置文件
+# ====================================
+
+# 文件名识别规则配置
+filename_patterns:
+  # 支持多种命名规则，按优先级从高到低
+  # 每个规则包含：正则表达式、样本ID提取组、方向提取组
+  
+  - name: "标准格式_括号样本名"
+    # 示例: 0001_31525103103397_(3sm1)_[16SF].ab1
+    pattern: '^\d+_\d+_\(([^)]+)\)_\[16S([FR])\]'
+    sample_group: 1  # 样本ID在第1个捕获组
+    direction_group: 2  # 方向在第2个捕获组
+    description: "格式: 编号_订单号_(样本ID)_[16S方向]"
+  
+  - name: "简化格式_下划线分隔"
+    # 示例: sample1_F.ab1, sample1_R.ab1
+    pattern: '^([^_]+)_([FR])\.ab1$'
+    sample_group: 1
+    direction_group: 2
+    description: "格式: 样本ID_方向"
+  
+  - name: "简化格式_横杠分隔"
+    # 示例: sample1-F.ab1, sample1-R.ab1
+    pattern: '^([^-]+)-([FR])\.ab1$'
+    sample_group: 1
+    direction_group: 2
+    description: "格式: 样本ID-方向"
+  
+  - name: "前缀格式"
+    # 示例: F_sample1.ab1, R_sample1.ab1
+    pattern: '^([FR])_(.+)\.ab1$'
+    sample_group: 2
+    direction_group: 1
+    description: "格式: 方向_样本ID"
+  
+  - name: "后缀格式"
+    # 示例: sample1.F.ab1, sample1.R.ab1
+    pattern: '^(.+)\.([FR])\.ab1$'
+    sample_group: 1
+    direction_group: 2
+    description: "格式: 样本ID.方向"
+
+  - name: "16S标记格式"
+    # 示例: sample1_16SF.ab1, sample1_16SR.ab1
+    pattern: '^(.+)_16S([FR])\.ab1$'
+    sample_group: 1
+    direction_group: 2
+    description: "格式: 样本ID_16S方向"
+
+# 序列组装参数
+assembly:
+  min_overlap: 20  # 最小重叠长度
+  min_quality: 20  # 最小质量分数
+  trim_ends: true  # 是否修剪低质量末端
+  trim_threshold: 0.05  # 修剪阈值
+  consensus_threshold: 0.7  # 一致性阈值
+  
+# BLAST参数
+blast:
+  database: "nt"  # 数据库选择: nt, refseq_rna, 16S_ribosomal_RNA
+  max_hits: 10  # 每个序列返回的最大匹配数
+  delay: 10  # 每次BLAST之间的延迟（秒）
+  evalue: 0.001  # E-value阈值
+  
+# 输出设置
+output:
+  assembly_dir: "sanger_assembly_results"
+  blast_dir: "blast_results"
+  create_timestamp: true  # 是否在输出文件名中添加时间戳
+  save_intermediate: true  # 是否保存中间文件
+
+# 质量控制
+quality_control:
+  min_sequence_length: 100  # 最小序列长度
+  max_ambiguous_bases: 10  # 最大模糊碱基数
+  min_average_quality: 20  # 最小平均质量分数
+
+# 日志设置
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  save_to_file: true
+  log_file: "analysis.log"
+
