@@ -78,6 +78,20 @@ pip install -r requirements.txt
 
 ## ⚡ Quick Start
 
+### 🧪 Test with Sample Data
+
+We provide test data (16 ab1 files, 8 samples) in the `test_data/` directory:
+
+```bash
+# Quick test (skip BLAST)
+python sanger_16s_pipeline.py -i test_data -o test_output --skip-blast
+
+# Full pipeline test (with BLAST)
+python sanger_16s_pipeline.py -i test_data -o test_output --batch
+```
+
+See [test_data/README.md](test_data/README.md) for details about the test samples.
+
 ### Interactive Mode (Recommended for First-Time Users)
 
 ```bash
@@ -450,7 +464,7 @@ in the Software without restriction...
 
 - **Issues**: [GitHub Issues](https://github.com/YanZezhang-debug/SeqFlow-16S/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/YanZezhang-debug/SeqFlow-16S/discussions)
-- **Email**: zhangyanze@example.com
+- **Email**: maimang0528@163.com
 
 ---
 

@@ -48,9 +48,11 @@ blast_progress.json
 *.bak
 *.cache
 
-# Output files (keep examples)
+# Output files (keep examples and test data)
 !examples/*.ab1
 !examples/*.seq
+!test_data/*.ab1
+!test_data/**/*.ab1
 
 # OS
 Thumbs.db
