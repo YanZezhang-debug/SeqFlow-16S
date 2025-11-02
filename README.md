@@ -60,8 +60,8 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/seqflow-16s.git
-cd seqflow-16s
+git clone https://github.com/YanZezhang-debug/SeqFlow-16S.git
+cd SeqFlow-16S
 
 # Install required packages
 pip install -r requirements.txt
@@ -415,8 +415,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/seqflow-16s.git
-cd seqflow-16s
+git clone https://github.com/YanZezhang-debug/SeqFlow-16S.git
+cd SeqFlow-16S
 
 # Create a virtual environment
 python -m venv venv
@@ -449,21 +449,26 @@ in the Software without restriction...
 
 ## 📊 Project Statistics
 
-![GitHub stars](https://img.shields.io/github/stars/YOUR_USERNAME/seqflow-16s?style=social)
-![GitHub forks](https://img.shields.io/github/forks/YOUR_USERNAME/seqflow-16s?style=social)
-![GitHub watchers](https://img.shields.io/github/watchers/YOUR_USERNAME/seqflow-16s?style=social)
+![GitHub stars](https://img.shields.io/github/stars/YanZezhang-debug/SeqFlow-16S?style=social)
+![GitHub forks](https://img.shields.io/github/forks/YanZezhang-debug/SeqFlow-16S?style=social)
+![GitHub watchers](https://img.shields.io/github/watchers/YanZezhang-debug/SeqFlow-16S?style=social)
 
-![GitHub issues](https://img.shields.io/github/issues/YOUR_USERNAME/seqflow-16s)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/YOUR_USERNAME/seqflow-16s)
-![GitHub last commit](https://img.shields.io/github/last-commit/YOUR_USERNAME/seqflow-16s)
-![GitHub contributors](https://img.shields.io/github/contributors/YOUR_USERNAME/seqflow-16s)
+![GitHub issues](https://img.shields.io/github/issues/YanZezhang-debug/SeqFlow-16S)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/YanZezhang-debug/SeqFlow-16S)
+![GitHub last commit](https://img.shields.io/github/last-commit/YanZezhang-debug/SeqFlow-16S)
+![GitHub contributors](https://img.shields.io/github/contributors/YanZezhang-debug/SeqFlow-16S)
 
 ---
 
 ## 📮 Contact & Support
 
+<<<<<<< HEAD
 - **Issues**: [GitHub Issues](https://github.com/YOUR_USERNAME/seqflow-16s/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/YOUR_USERNAME/seqflow-16s/discussions)
+=======
+- **Issues**: [GitHub Issues](https://github.com/YanZezhang-debug/SeqFlow-16S/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/YanZezhang-debug/SeqFlow-16S/discussions)
+>>>>>>> 98307ba2b30d4895a33a9cc45209cf7559a818da
 - **Email**: maimang0528@163.com
 
 ---
@@ -485,7 +490,7 @@ If you use SeqFlow-16S in your research, please cite:
   author = {Zhang, Yanze},
   title = {SeqFlow-16S: Intelligent Sanger 16S rRNA Analysis Toolkit},
   year = {2025},
-  url = {https://github.com/YOUR_USERNAME/seqflow-16s},
+  url = {https://github.com/YanZezhang-debug/SeqFlow-16S},
   version = {1.0.0}
 }
 ```
@@ -514,7 +519,7 @@ If you use SeqFlow-16S in your research, please cite:
 
 If you find this project helpful, please consider giving it a star! ⭐
 
-[![Star History Chart](https://api.star-history.com/svg?repos=YOUR_USERNAME/seqflow-16s&type=Date)](https://star-history.com/#YOUR_USERNAME/seqflow-16s&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=YanZezhang-debug/SeqFlow-16S&type=Date)](https://star-history.com/#YanZezhang-debug/SeqFlow-16S&Date)
 
 ---
 
