@@ -450,7 +450,7 @@ in the Software without restriction...
 
 - **Issues**: [GitHub Issues](https://github.com/YanZezhang-debug/SeqFlow-16S/issues)
 - **Discussions**: [GitHub Discussions](https://github.com/YanZezhang-debug/SeqFlow-16S/discussions)
-- **Email**: zhangyanze@example.com
+- **Email**: maimang0528@163.com
 
 ---
 
